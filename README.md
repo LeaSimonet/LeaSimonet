@@ -1,4 +1,5 @@
 ## :woman_cartwheeling: Bienvenue
+
 [![email](https://img.shields.io/badge/email--lightgrey?style=social&logo=gmail)](mailto:simonetlea97@gmail.com)
 
 <p align="left">
@@ -8,7 +9,7 @@
 <a href="http://youtube.com/c/MishManners" target="blank"><img align="center" src="https://github.com/mishmanners/MishManners/blob/master/socials/youtube.png" alt="" height="30" /></a>
 </p>
 
-### I'm listening to:
+### Ma playlist 🎵
 
 [![spotify-github-profile](https://spotify-github-profile.vercel.app/api/view?uid=22a52oj3e5hnylnh2ua2e6loy&cover_image=true&theme=novatorem&bar_color=24b6f5&bar_color_cover=false)](https://open.spotify.com/user/11173087224?si=583b1463f6ca425f)
 
