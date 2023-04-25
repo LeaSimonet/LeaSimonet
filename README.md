@@ -32,7 +32,7 @@ En cours de construction ...
 Diplôme en dynamique des écosystèmes aquatiques.
 
 ### 2020 – Licence Biologie des organismes – Université de Pau et des Pays de l'Adour - Anglet
-Diplôme de biologie issus des milieux aquatiques.
+Diplôme de biologie - des milieux aquatiques.
 
 ### 2014 – BAC S – Lycée St Louis Villa Pia
 Filière générale option physique chimmie.
