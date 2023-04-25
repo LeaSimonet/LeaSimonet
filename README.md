@@ -20,13 +20,15 @@ En cours de construction ...
 
 ### :point_right: Compétences
 #### Langages / Frameworks
-<img src="./Icon/java.png" alt="java" title="Java"/>&nbsp;&nbsp; <img src="./assets/images/spring.ico" alt="spring" title="Spring"/>&nbsp;&nbsp; 
+<img src="./Icon/java.png" alt="java" title="Java"/>&nbsp;&nbsp; 
 <img src="./Icon/javascript.png" alt ="Javascript" title="Javascript"/>&nbsp;&nbsp; 
 <img src="./Icon/angular.png" alt ="angular" title="Angular"/>&nbsp;&nbsp;
 
 ### :point_right: Outils
-<img src="./LeaSimonet/philippart-s/assets/images/jenkins.png" alt ="Jenkins" title="Jenkins"/>&nbsp;&nbsp; <img src="./assets/images/github.png" alt ="GitHub" title="GitHub"/>&nbsp;&nbsp; 
+<img src="./Icon/github.png" alt ="GitHub" title="GitHub"/>&nbsp;&nbsp; 
 <img src="./Icon/git.png" alt ="Git" title="Git"/>&nbsp;&nbsp; 
+<img src="./Icon/r.png" alt ="R" title="R"/>&nbsp;&nbsp; 
+<img src="./Icon/rstudio.png" alt ="Rstudio" title="Rstudio"/>&nbsp;&nbsp; 
 
 
 | Quelques statistiques | | |
