@@ -8,7 +8,7 @@
     
 <a href="http://youtube.com/c/MishManners" target="blank"><img align="center" src="https://github.com/mishmanners/MishManners/blob/master/socials/youtube.png" alt="" height="30" /></a>
     
-<a href="mailto:simonetlea97@gmail.com" target="blank"><img align="center" src="https://github.com/LeaSimonet/LeaSimonet/Icon/gmail.png" alt="" height="30" /></a>
+<a href="mailto:simonetlea97@gmail.com" target="blank"><img align="center" src="Icon/gmail.png" alt="" height="30" /></a>
     
 </p>
 
