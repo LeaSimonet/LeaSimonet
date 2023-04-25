@@ -12,7 +12,7 @@
 
 <a href="https://open.spotify.com/user/11173087224?si=583b1463f6ca425f" target="blank"><img align="center" src="Icon/spotify.png" alt="" height="30" /></a>
     
-<p align="justify">
+<p text-align="justify">
     Bienvenue sur mon profil GitHub ! Je suis un développeur passionné issu d'une filière biologie BAC +5 avec une solide formation en statistiques. Au fil du temps, j'ai découvert que l'informatique était un domaine fascinant qui pouvait me permettre de concilier mes compétences analytiques et mon désir de créer des solutions pratiques et efficaces.
 
 C'est pourquoi j'ai décidé de me lancer dans une reconversion en tant qu'ingénieur développeur Java. Depuis, j'ai acquis une solide expérience dans le développement de logiciels et d'applications, en travaillant sur des projets variés et stimulants.
