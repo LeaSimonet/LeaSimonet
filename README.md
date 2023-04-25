@@ -2,10 +2,15 @@
 
 <p align="left">
 <a href="http://twitter.com/MishManners" target="blank"><img align="center" src="https://github.com/LeaSimonet/LeaSimonet/Icon/twitter.png" title = "Twitter" alt="" height="30" /></a>
+    
 <a href="www.linkedin.com/in/léa-simonet-884615172" target="blank"><img align="center" src="https://github.com/LeaSimonet/LeaSimonet/Icon/linkedin.png" alt="" height="30" /></a>
+    
 <a href="http://instagram.com/sim6.photos" target="blank"><img align="center" src="https://github.com/mishmanners/MishManners/blob/master/socials/instagram.png" alt="" height="30" /></a>
+    
 <a href="http://youtube.com/c/MishManners" target="blank"><img align="center" src="https://github.com/mishmanners/MishManners/blob/master/socials/youtube.png" alt="" height="30" /></a>
+    
 <a href="mailto:simonetlea97@gmail.com" target="blank"><img align="center" src="https://github.com/LeaSimonet/LeaSimonet/Icon/gmail.png" alt="" height="30" /></a>
+    
 </p>
 
 ### Ma playlist 🎵
