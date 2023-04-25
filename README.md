@@ -58,7 +58,7 @@ Filière générale option physique chimmie.
 Randonnée, ...
 </details>
 
-### Watch my contribution graph get eaten by the snake 🐍 (en cours de construction)
+### Regardez mon graphique de contribution se faire manger par le serpent 🐍
 ![snake gif](https://github.com/LeaSimonet/LeaSimonet/blob/output/github-contribution-grid-snake.gif)
  
 
