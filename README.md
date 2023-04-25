@@ -1,7 +1,7 @@
 ## :woman_cartwheeling: Bienvenue
 
 <p align="left">
-<a href="http://twitter.com/MishManners" target="blank"><img align="center" src="Icon/twitter.png" title = "Twitter" alt="" height="30" /></a>
+<a href="https://twitter.com/SimonetLa3" target="blank"><img align="center" src="Icon/twitter.png" title = "Twitter" alt="" height="30" /></a>
 <a href="www.linkedin.com/in/léa-simonet-884615172" target="blank"><img align="center" src="Icon/linkedin.png" alt="" height="30" /></a>
 <a href="http://instagram.com/sim6.photos" target="blank"><img align="center" src="https://github.com/mishmanners/MishManners/blob/master/socials/instagram.png" alt="" height="30" /></a>
 <a href="mailto:simonetlea97@gmail.com" target="blank"><img align="center" src="Icon/gmail.png" alt="" height="30" /></a>
