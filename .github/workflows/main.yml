@@ -1,4 +1,4 @@
-name: generate animation
+name: Generate snake
 
 on:
   # run automatically every 24 hours
@@ -6,9 +6,6 @@ on:
     - cron: "0 */24 * * *" 
   
   # allows to manually run the job at any time
-  workflow_dispatch:
-  
-  # This command allows us to run the Action automatically from the Actions tab.
   workflow_dispatch:
   
 jobs:
