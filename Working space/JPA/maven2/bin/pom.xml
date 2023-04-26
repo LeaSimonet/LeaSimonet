@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> <!--Ne pas se soucier de cette balise, elle ne change pas -->
+  <modelVersion>4.0.0</modelVersion> <!--Ne pas se soucier de cette balise, elle ne change pas -->
+<!--Ce que j'ai touché dans l'invité de commande -->
+  <groupId>formation.soprasteria</groupId>
+  <artifactId>maven2</artifactId>
+  <version>1.0-SNAPSHOT</version> <!--On enlève le -SNAPSHOT si c'est la vesion finale -->
+  <packaging>jar</packaging> <!--Archive intégré dans des projets.  -->
+
+  <properties> <!--Permet juste de définir l'encodage-->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+
+  <dependencies> <!--Contient pour l'instant que depency-->
+  <dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+    <version>8.0.33</version>
+</dependency>
+  </dependencies>
+</project>
