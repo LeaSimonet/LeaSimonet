@@ -1,4 +1,4 @@
-package formationJpa.repositories;
+package cinemaJpa.repositories;
 
 import java.util.List;
 
@@ -6,23 +6,23 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
-import formationJpa.entities.Client2;
-import formationJpa.entities.Produit;
+import cinemaJpa.entities.Spectateur;
 
-public class DaoClient2JpaImpl implements DaoClient2 {
-
+public class DaoSpectateurJpaImpl implements DaoSpectateur {
+	
 	@Override
-	public void insert(Client2 obj) {
+	public void insert(Spectateur obj) {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
 		em.persist(obj);
 		tx.commit();
 		em.close();
+		
 	}
 
 	@Override
-	public Client2 update(Client2 obj) {
+	public Spectateur update(Spectateur obj) {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
@@ -33,13 +33,14 @@ public class DaoClient2JpaImpl implements DaoClient2 {
 	}
 
 	@Override
-	public void delete(Client2 obj) {
+	public void delete(Spectateur obj) {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
 		em.remove(em.merge(obj));
 		tx.commit();
 		em.close();
+		
 	}
 
 	@Override
@@ -47,26 +48,26 @@ public class DaoClient2JpaImpl implements DaoClient2 {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
-		em.remove(em.find(Client2.class, key));
+		em.remove(em.find(Spectateur.class, key));
 		tx.commit();
 		em.close();
 	}
 
 	@Override
-	public Client2 findByKey(Long key) {
+	public Spectateur findByKey(Long key) {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
-		Client2 client2=em.find(Client2.class, key);
+		Spectateur spectateur=em.find(Spectateur.class, key);
 		em.close();
-		return client2;
+		return spectateur;
 	}
 
 	@Override
-	public List<Client2> findAll() {
+	public List<Spectateur> findAll() {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
-		TypedQuery<Client2> query=em.createQuery("from Client2",Client2.class);
-		List<Client2> client2s=query.getResultList();
+		TypedQuery<Spectateur> query=em.createQuery("from Spectateur",Spectateur.class);
+		List<Spectateur> spectateurs=query.getResultList();
 		em.close();
-		return client2s;
+		return spectateurs;
 	}
 
 }

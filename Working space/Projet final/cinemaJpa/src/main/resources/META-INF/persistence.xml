@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="cinemaprojet"
+		transaction-type="RESOURCE_LOCAL">
+		<!-- implementation de jpa utilisée : tapper sur internet "hibernatepersitenceprovider 
+			javadoc"" -->
+
+		<provider>
+	org.hibernate.jpa.HibernatePersistenceProvider
+	</provider>
+	
+	<properties>
+	<!-- la suite de la config fionctionne uniquement avec hibernate. Si on jour on utilise une autre implementation le nom des propriétés sera différent.  -->
+	<!-- configuration des drivers du jdbc -->
+	<property name="hibernate.connection.driver" value="com.mysql.cj.jdbc.Driver"/>
+	<!--  url -->
+	<property name="hibernate.connection.url" value="jdbc:mysql://localhost:8889/cinemaprojet"/>
+	<property name="hibernate.connection.user" value="root"/>
+	<property name="hibernate.connection.password" value="root123"/>
+	
+	<!--  jpa capable de faire un controle de la structure de la base. On va écrire du code qui est censé correpondre à la base de données. Du coup JPA vérifie que le code fonctionne bien avec la base de données définit.  -->
+	<!--  validate = controle si ça passe pas, crash -->
+	<!--  create => drop, create table de vos entités. Pas besoin d'avoir des bases de données. Créer des object en disant cet object correspond à telle table et JPA la créera pour nous.   -->
+	<!--  update => controle, s'il manque des choses dans la table, les ajoute. Mais pas capable de retirer -->
+	<!--  donc on va beaucoup modifier cette valeur au cours du projet -->
+	
+	<property name="hibernate.hbm2ddl.auto" value="create"/>
+	
+	
+	
+	<!--  afichage des requete, ne sert à rien à part pourrir l'écran pas besoin de mettre à vrai, le plus souvent on laisse false -->
+	<property name="hibernate.show_sql" value="false"/>
+	<!--  permet de formater la ligne surtout quand on a des ligne à rallonge  -->
+	<property name="hibernate.format_sql" value="false"/>
+	
+	</properties>
+
+	</persistence-unit>
+
+</persistence>

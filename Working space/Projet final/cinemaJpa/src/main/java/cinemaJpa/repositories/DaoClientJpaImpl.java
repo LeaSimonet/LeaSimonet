@@ -1,4 +1,4 @@
-package formationJpa.repositories;
+package cinemaJpa.repositories;
 
 import java.util.List;
 
@@ -6,13 +6,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
-import formationJpa.entities.Client2;
-import formationJpa.entities.Produit;
+import cinemaJpa.entities.Client;
 
-public class DaoClient2JpaImpl implements DaoClient2 {
+public class DaoClientJpaImpl implements DaoClient {
 
 	@Override
-	public void insert(Client2 obj) {
+	public void insert(Client obj) {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
@@ -22,7 +21,7 @@ public class DaoClient2JpaImpl implements DaoClient2 {
 	}
 
 	@Override
-	public Client2 update(Client2 obj) {
+	public Client update(Client obj) {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
@@ -33,7 +32,7 @@ public class DaoClient2JpaImpl implements DaoClient2 {
 	}
 
 	@Override
-	public void delete(Client2 obj) {
+	public void delete(Client obj) {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
@@ -47,26 +46,26 @@ public class DaoClient2JpaImpl implements DaoClient2 {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
-		em.remove(em.find(Client2.class, key));
+		em.remove(em.find(Client.class, key));
 		tx.commit();
 		em.close();
 	}
 
 	@Override
-	public Client2 findByKey(Long key) {
+	public Client findByKey(Long key) {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
-		Client2 client2=em.find(Client2.class, key);
+		Client client=em.find(Client.class, key);
 		em.close();
-		return client2;
+		return client;
 	}
 
 	@Override
-	public List<Client2> findAll() {
+	public List<Client> findAll() {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
-		TypedQuery<Client2> query=em.createQuery("from Client2",Client2.class);
-		List<Client2> client2s=query.getResultList();
+		TypedQuery<Client> query=em.createQuery("from Client",Client.class);
+		List<Client> clients=query.getResultList();
 		em.close();
-		return client2s;
+		return clients;
 	}
 
 }
