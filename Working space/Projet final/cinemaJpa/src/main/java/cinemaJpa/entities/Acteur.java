@@ -1,12 +1,17 @@
 package cinemaJpa.entities;
 
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -26,6 +31,16 @@ public class Acteur {
 	private String prenom;
 	@Column(name="acteur_nationalite")
 	private String nationalite;
+	
+	
+	@ManyToMany
+	@JoinTable(
+			name="participation",
+			joinColumns = @JoinColumn(name="participation_purchase_number",foreignKey = @ForeignKey(name="participation_number_fk")),
+			inverseJoinColumns = @JoinColumn(name="participation_product_id",foreignKey = @ForeignKey(name="participation_product_id_fk")))	
+	private Set<Film> filmsActeurs;
+	
+	
 	
 	public Acteur() {
 		
@@ -67,6 +82,17 @@ public class Acteur {
 
 	public void setNationalite(String nationalite) {
 		this.nationalite = nationalite;
+	}
+	
+	
+	
+
+	public Set<Film> getFilmsActeurs() {
+		return filmsActeurs;
+	}
+
+	public void setFilmsActeurs(Set<Film> filmsActeurs) {
+		this.filmsActeurs = filmsActeurs;
 	}
 
 	@Override

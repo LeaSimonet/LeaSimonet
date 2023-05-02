@@ -3,6 +3,7 @@ package cinemaJpa.entities;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +34,13 @@ public class Film {
 	private LocalDate sortie;
 	@Column(name="film_dispo")
 	private boolean disponible;
+	
+	@OneToMany(mappedBy = "film")
+	private Set<Seance> seance;
+	
+	
+	@ManyToMany(mappedBy = "filmsActeurs")
+	private Set<Acteur> acteurFilm;
 	
 	public Film() {
 		
@@ -91,6 +101,24 @@ public class Film {
 
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
+	}
+
+
+	public Set<Seance> getSeance() {
+		return seance;
+	}
+
+	public void setSeance(Set<Seance> seance) {
+		this.seance = seance;
+	}
+
+	
+	public Set<Acteur> getActeurFilm() {
+		return acteurFilm;
+	}
+
+	public void setActeurFilm(Set<Acteur> acteurFilm) {
+		this.acteurFilm = acteurFilm;
 	}
 
 	@Override

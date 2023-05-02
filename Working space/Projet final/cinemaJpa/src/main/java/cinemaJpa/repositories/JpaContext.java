@@ -11,8 +11,9 @@ public class JpaContext {
 	private static DaoAdmin daoAdmin=new DaoAdminJpaImpl();
 	private static DaoReservation daoReservation=new DaoReservationJpaImpl();
 	private static DaoSeance daoSeance=new DaoSeanceJpaImpl();
-	private static DaoSpectateur daoSpectateur=new DaoSpectateurJpaImpl();
 	private static DaoSalle daoSalle=new DaoSalleJpaImpl();
+	private static DaoEvaluation daoEvaluation=new DaoEvaluationJpaImpl();
+	
 	
 	public static DaoFilm getDaoFilm() {
 		return daoFilm;
@@ -37,13 +38,17 @@ public class JpaContext {
 		return daoSeance;
 	}
 	
-	public static DaoSpectateur getDaoSpectateur() {
-		return daoSpectateur;
-	}
 	
 	public static DaoSalle getDaoSalle() {
 		return daoSalle;
 	}
+	
+
+	public static DaoEvaluation getDaoEvaluation() {
+		return daoEvaluation;
+	}
+	
+	
 	
 	public static EntityManagerFactory getEntityManagerFactory() {
 		if(emf==null) {

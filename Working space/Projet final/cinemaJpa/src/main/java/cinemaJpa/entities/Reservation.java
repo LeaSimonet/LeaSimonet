@@ -2,21 +2,21 @@ package cinemaJpa.entities;
 
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 
 @Entity
-@Table(name="Reservation")
+@Table(name="reservation")
 
 public class Reservation {
 	
@@ -29,14 +29,14 @@ public class Reservation {
 		@Column(name="date_resa",nullable = false)
 		private LocalDate dateReservation;
 	
-		@Transient
-		private List<Spectateur> spectateurs = new ArrayList();
-		
-		@Transient
+	
+		@ManyToOne
+		@JoinColumn(name="reservation_client_id",foreignKey = @ForeignKey(name="reservation_client_id_fk"))
 		private Client client;
 		
 		
-		@Transient
+		@ManyToOne
+		@JoinColumn(name="reservation_seance_id",foreignKey = @ForeignKey(name="reservation_seance_id_fk"))
 		private Seance seance;
 		
 		
@@ -46,10 +46,9 @@ public class Reservation {
 		}
 		
 	
-	public Reservation(double prix, LocalDate dateReservation, Client client, Seance seance) {
+	public Reservation(double prix, LocalDate dateReservation, Seance seance) {
 		this.prix = prix;
 		this.dateReservation = dateReservation;
-		this.client = client;
 		this.seance = seance;
 	}
 
@@ -78,28 +77,22 @@ public class Reservation {
 		this.dateReservation = dateReservation;
 	}
 
-	public List<Spectateur> getSpectateurs() {
-		return spectateurs;
-	}
-
-	public void setSpectateurs(List<Spectateur> spec) {
-		this.spectateurs = spec;
-	}
-
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
-
 	public Seance getSeance() {
 		return seance;
 	}
 
 	public void setSeance(Seance seance) {
 		this.seance = seance;
+	}
+
+
+	public Client getClient() {
+		return client;
+	}
+
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 

@@ -4,18 +4,22 @@ package cinemaJpa.entities;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 
 @Entity
-@Table(name="Seance")
+@Table(name="seance")
 
 
 public class Seance {
@@ -31,11 +35,19 @@ public class Seance {
 		private LocalTime horaire;
 		@Column(name="prix_seance")
 		private double prix;
-		@Transient
+		@ManyToOne
+		@JoinColumn(name="seance_film_id",foreignKey = @ForeignKey(name="seance_film_id_fk"))
 		private Film film;
-		@Transient
+		@ManyToOne
+		@JoinColumn(name="seance_salle_id",foreignKey = @ForeignKey(name="seance_salle_id_fk"))
 		private Salle salle;
-		@Transient
+		
+		
+		@OneToMany(mappedBy = "seance")
+		private Set<Reservation> reservation;
+		
+		
+		
 		private Langue langue;
 		
 	

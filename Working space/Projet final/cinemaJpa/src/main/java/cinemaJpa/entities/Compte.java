@@ -20,11 +20,11 @@ public class Compte {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="acteur_id")
 	private Long id;
-	@Column(name="login",nullable = false)
+	@Column(name="login")
 	private String login;
-	@Column(name="password",nullable = false)
+	@Column(name="password")
 	private String password;
-	@Column(name="email", nullable=false)
+	@Column(name="email")
 	private String email;
 	
 	public Compte() {
