@@ -3,8 +3,10 @@ package cinemaJpa.entities;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,8 +19,11 @@ import javax.persistence.Table;
 			@EmbeddedId
 			private EvaluationKey id;
 			
-			private int note;
-			private Long commentaire;
+			private double note;
+			
+			@Lob
+			@Column(name="evaluation_commentaire", columnDefinition = "TEXT")
+			private String commentaire;
 			
 			
 
@@ -26,8 +31,7 @@ import javax.persistence.Table;
 
 			}
 
-			public Evaluation(EvaluationKey id,int note, Long commentaire) {
-				super();
+			public Evaluation(EvaluationKey id, double note, String commentaire) {
 				this.id = id;
 				this.note=note;
 				this.commentaire=commentaire;
@@ -41,23 +45,22 @@ import javax.persistence.Table;
 				this.id = id;
 			}
 
-			public int getNote() {
+			public double getNote() {
 				return note;
 			}
 
-			public void setNote(int note) {
+			public void setNote(double note) {
 				this.note = note;
 			}
 
-			public Long getCommentaire() {
+			public String getCommentaire() {
 				return commentaire;
 			}
 
-			public void setCommentaire(Long commentaire) {
+			public void setCommentaire(String commentaire) {
 				this.commentaire = commentaire;
 			}
-			
-			
+
 			@Override
 			public int hashCode() {
 				return Objects.hash(id);
@@ -74,8 +77,8 @@ import javax.persistence.Table;
 				Evaluation other = (Evaluation) obj;
 				return Objects.equals(id, other.id);
 			}
-	
-	
+			
+		
 	
 
 	

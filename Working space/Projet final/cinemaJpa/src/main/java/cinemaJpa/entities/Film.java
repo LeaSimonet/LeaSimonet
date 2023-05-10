@@ -9,9 +9,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -40,7 +43,11 @@ public class Film {
 	
 	
 	@ManyToMany(mappedBy = "filmsActeurs")
+	@JoinTable(name="participation", joinColumns = @JoinColumn(name="participation_film_id", foreignKey = @ForeignKey(name="participation_film_id_fk")), inverseJoinColumns = @JoinColumn(name="participation_acteur_id", foreignKey = @ForeignKey(name="participation_acteur_id_fk")))
 	private Set<Acteur> acteurFilm;
+	
+	
+	private Set<Evaluation> evaluations;
 	
 	public Film() {
 		
@@ -119,6 +126,16 @@ public class Film {
 
 	public void setActeurFilm(Set<Acteur> acteurFilm) {
 		this.acteurFilm = acteurFilm;
+	}
+
+	
+	
+	public Set<Evaluation> getEvaluations() {
+		return evaluations;
+	}
+
+	public void setEvaluations(Set<Evaluation> evaluations) {
+		this.evaluations = evaluations;
 	}
 
 	@Override

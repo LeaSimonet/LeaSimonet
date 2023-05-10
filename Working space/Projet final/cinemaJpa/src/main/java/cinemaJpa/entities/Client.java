@@ -14,27 +14,27 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Client")
+@Table(name="client")
 
 
 public class Client extends Compte {
 	
 		
-		@Column(name="Client_last_name")
+		@Column(name="client_last_name")
 		private String nom;
-		@Column(name="Client_first_name")
+		@Column(name="client_first_name")
 		private String prenom;
-		@Column(name="Client_phone")
+		@Column(name="client_phone")
 		private String telephone;
-		@Column(name="Client_birth")
+		@Column(name="client_birth")
 		private LocalDate naissance;
 		
 		@Embedded
 		@AttributeOverrides({
-			@AttributeOverride(name = "numero",column = @Column(name="Client_number",length = 50)),
-			@AttributeOverride(name="voie",column = @Column(name="Client_voie")),
-			@AttributeOverride(name="ville",column = @Column(name="Client_ville",length = 50)),
-			@AttributeOverride(name="cp",column = @Column(name="Client_cp"))
+			@AttributeOverride(name = "numero",column = @Column(name="client_number",length = 50)),
+			@AttributeOverride(name="voie",column = @Column(name="client_voie")),
+			@AttributeOverride(name="ville",column = @Column(name="client_ville",length = 50)),
+			@AttributeOverride(name="cp",column = @Column(name="client_cp"))
 		})
 		private Adresse adresse;
 		
@@ -42,6 +42,9 @@ public class Client extends Compte {
 		private Set<Reservation> resaDuClient;
 		
 
+		@OneToMany(mappedBy = "client")
+		private Set<Evaluation> evaluations;
+		
 		public Client() {
 			
 		}
@@ -95,6 +98,22 @@ public class Client extends Compte {
 
 		public void setAdresse(Adresse adresse) {
 			this.adresse = adresse;
+		}
+
+		public Set<Reservation> getResaDuClient() {
+			return resaDuClient;
+		}
+
+		public void setResaDuClient(Set<Reservation> resaDuClient) {
+			this.resaDuClient = resaDuClient;
+		}
+
+		public Set<Evaluation> getEvaluations() {
+			return evaluations;
+		}
+
+		public void setEvaluations(Set<Evaluation> evaluations) {
+			this.evaluations = evaluations;
 		}
 
 

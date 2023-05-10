@@ -26,9 +26,7 @@ public class Salle {
 		private String nom;
 		@Column(name="places",nullable = false)
 		private int places;
-		@OneToMany(mappedBy = "salle")
-		private Set<Seance> seances;
-		
+	
 		
 		
 		public Salle() {
@@ -64,19 +62,6 @@ public class Salle {
 
 	public void setPlaces(int places) {
 		this.places = places;
-	}
-
-	
-	
-	
-
-	public Set<Seance> getSeances() {
-		return seances;
-	}
-
-
-	public void setSeances(Set<Seance> seances) {
-		this.seances = seances;
 	}
 
 

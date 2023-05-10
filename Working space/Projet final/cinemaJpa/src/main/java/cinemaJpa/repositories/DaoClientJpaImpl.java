@@ -15,8 +15,14 @@ public class DaoClientJpaImpl implements DaoClient {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
-		em.persist(obj);
-		tx.commit();
+		try{
+			em.persist(obj);
+			tx.commit();
+		} catch (Exception ex){
+			ex.printStackTrace();
+			tx.rollback();
+		}
+		
 		em.close();
 	}
 
@@ -25,8 +31,13 @@ public class DaoClientJpaImpl implements DaoClient {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
-		obj=em.merge(obj);
-		tx.commit();
+		try{
+			obj=em.merge(obj);
+			tx.commit();
+		} catch (Exception ex){
+			ex.printStackTrace();
+			tx.rollback();
+		}
 		em.close();
 		return obj;
 	}
@@ -36,8 +47,13 @@ public class DaoClientJpaImpl implements DaoClient {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
-		em.remove(em.merge(obj));
-		tx.commit();
+		try{
+			em.remove(em.merge(obj));
+			tx.commit();
+		} catch (Exception ex){
+			ex.printStackTrace();
+			tx.rollback();
+		}
 		em.close();
 	}
 
@@ -46,8 +62,13 @@ public class DaoClientJpaImpl implements DaoClient {
 		EntityManager em=JpaContext.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		tx.begin();
-		em.remove(em.find(Client.class, key));
-		tx.commit();
+		try{
+			em.remove(em.find(Client.class, key));
+			tx.commit();
+		} catch (Exception ex){
+			ex.printStackTrace();
+			tx.rollback();
+		}
 		em.close();
 	}
 
@@ -68,4 +89,39 @@ public class DaoClientJpaImpl implements DaoClient {
 		return clients;
 	}
 
+	public List<Client> findMajor(){
+		 EntityManager em = JpaContext.getEntityManagerFactory().createEntityManager();
+		    TypedQuery<Client> query = em.createQuery( "Select c from Client c where timestampdiff(year, c.naissance, current_date)>=18", 
+		    		Client.class
+		    );
+		    List<Client> clients = query.getResultList();
+		    em.close();
+		    return clients;
+	}
+	
+	public List<Client> findMineur(){
+		EntityManager em = JpaContext.getEntityManagerFactory().createEntityManager();
+	    TypedQuery<Client> query = em.createQuery( "Select c from Client c where timestampdiff(year, c.naissance, current_date)<18", 
+	    		Client.class
+	    );
+	    List<Client> clients = query.getResultList();
+	    em.close();
+	    return clients;
+	}
+	
+	public List<Client> findSenior(){
+		EntityManager em = JpaContext.getEntityManagerFactory().createEntityManager();
+	    TypedQuery<Client> query = em.createQuery( "Select c from Client c where timestampdiff(year, c.naissance, current_date)>=18", 
+	    		Client.class
+	    );
+	    List<Client> clients = query.getResultList();
+	    em.close();
+	    return clients;
+	}
+
+
+	
+	
+	
+	
 }

@@ -14,10 +14,10 @@ import javax.persistence.ManyToOne;
 public class EvaluationKey implements Serializable{
 	
 		@ManyToOne
-		@JoinColumn(name="film_id",foreignKey = @ForeignKey(name="film_id_FK"))
+		@JoinColumn(name="evaluation_film_id",foreignKey = @ForeignKey(name="evaluationfilm_id_FK"))
 		private Film film;
 		@ManyToOne
-		@JoinColumn(name="client_id",foreignKey = @ForeignKey(name="clientt_id_FK"))
+		@JoinColumn(name="evaluation_client_id",foreignKey = @ForeignKey(name="evaluation_clientt_id_FK"))
 		private Client client;
 
 		public EvaluationKey() {

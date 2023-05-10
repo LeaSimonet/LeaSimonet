@@ -48,6 +48,8 @@ public class Seance {
 		
 		
 		
+		
+		@Column(name="seance_langue")
 		private Langue langue;
 		
 	
