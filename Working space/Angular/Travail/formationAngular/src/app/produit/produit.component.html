@@ -1,0 +1,6 @@
+<div style="background-color: aqua">
+  <h2>produit-component</h2>
+  <app-form-produit (produitVendu)="recupProduit($event)"></app-form-produit>
+  <!-- $event : donnée (personnePrete) -->
+  <app-afficher-produit [produit]="produit"></app-afficher-produit>
+</div>

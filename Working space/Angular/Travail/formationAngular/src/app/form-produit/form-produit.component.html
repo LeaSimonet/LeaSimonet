@@ -1,0 +1,15 @@
+<table style="background-color: rgba(167, 82, 82, 0.178)">
+  <h2>form-produit</h2>
+  <tr>
+    <td>nom:</td>
+    <td><input [(ngModel)]="nom" /></td>
+    <!--quand on tape qulque chose dans input va être instatément envoyer dans attribut-->
+  </tr>
+  <tr>
+    <td>prix:</td>
+    <td><input [(ngModel)]="prix" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><button (click)="envoyer()">envoyer</button></td>
+  </tr>
+</table>

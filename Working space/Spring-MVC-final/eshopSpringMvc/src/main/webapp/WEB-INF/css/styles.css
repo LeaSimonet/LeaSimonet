@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+/* Style pour les balises h1 */
+h1 {
+  font-size: 2.5em; /* Taille de police */
+  color: #333; /* Couleur du texte */
+  text-align: center; /* Alignement du texte */
+  margin-top: 20px; /* Marge supérieure */
+}
+
+/* Style pour les balises div */
+div {
+  background-color: #f1f1f1; /* Couleur de fond */
+  padding: 20px; /* Espacement intérieur */
+  border: 1px solid #ccc; /* Bordure */
+  border-radius: 5px; /* Rayon de la bordure */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Ombre */
+  margin-bottom: 20px; /* Marge inférieure */
+}
+
+/* Style pour les balises button */
+button {
+  background-color: #4CAF50; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espacement intérieur */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de décoration de texte */
+  display: inline-block; /* Affichage en ligne */
+  font-size: 16px; /* Taille de police */
+  border-radius: 5px; /* Rayon de la bordure */
+  cursor: pointer; /* Curseur de souris en forme de main */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Ombre */
+  transition: background-color 0.3s ease; /* Transition de couleur */
+}
+
+/* Style pour les balises button au survol de la souris */
+button:hover {
+  background-color: #3e8e41; /* Nouvelle couleur de fond */
+}

@@ -1,0 +1,15 @@
+<table style="background-color: rgba(0, 0, 0, 0.178)">
+  <h2>form-personne</h2>
+  <tr>
+    <td>prenom:</td>
+    <td><input [(ngModel)]="personne.prenom" /></td>
+    <!--quand on tape qulque chose dans input va être instatément envoyer dans attribut-->
+  </tr>
+  <tr>
+    <td>nom:</td>
+    <td><input [(ngModel)]="personne.nom" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><button (click)="envoyer()">envoyer</button></td>
+  </tr>
+</table>

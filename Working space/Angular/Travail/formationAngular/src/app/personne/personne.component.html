@@ -1,0 +1,8 @@
+<div style="background-color: aqua">
+  <h2>personne-component</h2>
+  <app-form-personne
+    (personnePrete)="recupPersonne($event)"
+  ></app-form-personne>
+  <!-- $event : donnée (personnePrete) -->
+  <app-bonjour [personne]="personneAEnvoyer"></app-bonjour>
+</div>
