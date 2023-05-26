@@ -1,0 +1,31 @@
+.navbar {
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar li {
+  margin-right: 10px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.navbar a:hover {
+  background-color: #555;
+}
+
+/* Style pour l'élément actif */
+.navbar .active {
+  background-color: #555;
+  font-weight: bold;
+}

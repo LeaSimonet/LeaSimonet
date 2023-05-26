@@ -3,6 +3,15 @@
   <app-form-personne
     (personnePrete)="recupPersonne($event)"
   ></app-form-personne>
-  <!-- $event : donnée (personnePrete) -->
-  <app-bonjour [personne]="personneAEnvoyer"></app-bonjour>
+  <!-- $event : donnée (personnePrete)
+  <app-bonjour [personne]="personneAEnvoyer"></app-bonjour>-->
+  <table>
+    <ul>
+      <tr *ngFor="let p of tabPersonne">
+        <td>{{ p.nom }}</td>
+        <td>{{ p.prenom }}</td>
+      </tr>
+    </ul>
+  </table>
+  <h2>fin personne-component</h2>
 </div>

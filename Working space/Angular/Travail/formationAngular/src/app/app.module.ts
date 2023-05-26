@@ -9,6 +9,7 @@ import { FormPersonneComponent } from './form-personne/form-personne.component';
 import { AfficherProduitComponent } from './afficher-produit/afficher-produit.component';
 import { FormProduitComponent } from './form-produit/form-produit.component';
 import { ProduitComponent } from './produit/produit.component';
+import { DemoDirectiveComponent } from './demo-directive/demo-directive.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ProduitComponent } from './produit/produit.component';
     AfficherProduitComponent,
     FormProduitComponent,
     ProduitComponent,
+    DemoDirectiveComponent,
   ],
   imports: [
     BrowserModule,

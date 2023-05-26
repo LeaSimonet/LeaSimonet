@@ -1,0 +1,22 @@
+<ng-template #BaliseAfficherSiFaux>
+  <p>p si if false</p>
+</ng-template>
+<p *ngIf="display(); else BaliseAfficherSiFaux">p vrai</p>
+<!-- si rien -> faux donc on affiche pas sinon affiche
+Etiquette correspond à la balise faux, on définit son nom. -->
+
+<ul>
+  <li>Liste 1</li>
+  <li>Liste 2</li>
+</ul>
+
+<ul>
+  <li *ngFor="let texte of tabString">{{ texte }}</li>
+</ul>
+
+<ul>
+  <tr *ngFor="let produit of tabProduit">
+    <td>{{ produit.nom }}</td>
+    <td>{{ produit.prix }}</td>
+  </tr>
+</ul>

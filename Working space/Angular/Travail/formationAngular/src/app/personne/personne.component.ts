@@ -11,6 +11,7 @@ export class PersonneComponent {
   nom = '';
   personne = new Personne();
   personneAEnvoyer = new Personne();
+  tabPersonne: Personne[] = [];
 
   recupPersonne(personne: Personne) {
     this.personneAEnvoyer = new Personne();

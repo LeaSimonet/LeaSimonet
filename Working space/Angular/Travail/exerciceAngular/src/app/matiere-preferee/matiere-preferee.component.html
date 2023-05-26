@@ -1,4 +1,33 @@
-<p>matiere preferee:{{ matierePreferee }} a obtenue {{ vote }} votes</p>
-<app-matiere nom="Java" (voteEvent)="getVote($event)"></app-matiere>
-<app-matiere nom="Angular" (voteEvent)="getVote($event)"></app-matiere>
-<app-matiere nom="Rstudio" (voteEvent)="getVote($event)"></app-matiere>
+<ng-template #BaliseAfficherSiFaux>
+  <p>Aucune matière préférée</p>
+</ng-template>
+<p
+  *ngIf="matierePreferee; else BaliseAfficherSiFaux"
+  background
+  couleur="yellow"
+>
+  matiere preferee:{{ matierePreferee }} a obtenue {{ vote }} votes
+</p>
+
+<table>
+  <tr *ngFor="let matiere of tabMatieres">
+    <td>
+      <app-matiere [nom]="matiere" (voteEvent)="getVote($event)"></app-matiere>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <form (ngSubmit)="ajouterMatiere()">
+        <input
+          type="text"
+          name="nouvelleMatiere"
+          [(ngModel)]="nouvelleMatiere"
+          placeholder="Nouvelle matière"
+        />
+        <button type="submit">Ajouter</button>
+      </form>
+    </td>
+  </tr>
+</table>
+
+<!--générer unformualire  pour aouter la valeur dans le tableau. -->
