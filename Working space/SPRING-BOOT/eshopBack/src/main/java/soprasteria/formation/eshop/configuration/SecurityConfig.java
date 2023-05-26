@@ -2,6 +2,7 @@ package soprasteria.formation.eshop.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -16,38 +17,37 @@ import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
+public class SecurityConfig {
 
-@Bean
-	public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
-//		// @formatter:off
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		
+		// @formatter:off
 //		return http.antMatcher("/api/**")
-//                .csrf(csrf->csrf.disable())
-//                .authorizeRequests(
-//                        requests ->
-//                                requests
-//                                        .antMatchers("/api/commande/**").hasRole("CLIENT")
-//                                        .anyRequest().hasAnyRole("ADMIN"))
-//
-//                .httpBasic(withDefaults())
-//                .build();
-//		// @formatter:on
-	
-	
-	// @formatter:off
-	return http.antMatcher("/api/**")
-            .csrf().disable()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
-            .authorizeRequests()
-                   .antMatchers("/api/commande/**").hasRole("CLIENT")
-                                    .anyRequest().hasAnyRole("ADMIN")
-            .and()
-            .httpBasic()
-            .and()
-            .build();
-	// @formatter:on
+//				.csrf(csrf -> csrf.disable())
+//				.authorizeRequests(requests ->  requests
+//														.antMatchers("/api/commande/**").hasRole("CLIENT")
+//														.anyRequest().hasAnyRole("ADMIN"))
+//				.httpBasic(withDefaults())
+//				.build();
 
+		return http.antMatcher("/api/**")
+						.csrf().disable()
+						.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+						.and()
+						.authorizeRequests()
+							//manque un truc pour angular
+//							.antMatchers(HttpMethod.POST,"/api/client/inscription").anonymous()
+//							.antMatchers(HttpMethod.GET,"/api/auth").authenticated()
+//							.antMatchers("/api/commande").hasRole("CLIENT")
+//							.anyRequest().hasAnyRole("ADMIN")
+							.anyRequest().permitAll()
+						.and()
+						.httpBasic()
+						.and()
+						.build();
+
+		// @formatter:on
 	}
 	
 	

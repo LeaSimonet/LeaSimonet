@@ -34,12 +34,10 @@ public class Client extends Personne {
 	@JsonView(JsonViews.ClientWithCommandes.class)
 	private Set<Commande> commandes;
 	@OneToOne
-	@JoinColumn(name="customer_account_id", foreignKey = @ForeignKey(name="customer_account_id_fk"))
+	@JoinColumn(name = "customer_account_id", foreignKey = @ForeignKey(name = "customer_account_id_fk"))
 	@NotNull
-    private Compte compte;
-    
-	
-	
+	private Compte compte;
+
 	public Client() {
 
 	}
@@ -48,8 +46,7 @@ public class Client extends Personne {
 		super(nom, adresse);
 		this.prenom = prenom;
 	}
-	
-	
+
 	public Client(String nom, Adresse adresse, @NotBlank String prenom, @NotBlank Compte compte) {
 		super(nom, adresse);
 		this.prenom = prenom;
@@ -79,7 +76,5 @@ public class Client extends Personne {
 	public void setCompte(Compte compte) {
 		this.compte = compte;
 	}
-
-	
 
 }

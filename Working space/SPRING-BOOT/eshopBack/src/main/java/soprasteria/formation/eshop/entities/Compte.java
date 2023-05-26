@@ -5,122 +5,109 @@ import java.util.Collection;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class Compte implements UserDetails{
+import com.fasterxml.jackson.annotation.JsonView;
+
+import soprasteria.formation.eshop.entities.jsonviews.JsonViews;
+
+@Entity
+@Table(name = "account")
+public class Compte implements UserDetails {
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name="account")
-	private Integer id;
-	@Column(name = "account", unique = true, nullable = false, length = 200)
-	private String username;
-	@Column(name = "account", nullable = false, length = 255)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "account_id")
+	private Long id;
+	@Column(name = "account_login", nullable = false, unique = true, length = 200)
+	@JsonView(JsonViews.Base.class)
+	private String login;
+	@Column(name = "account_password", nullable = false, length = 255)
 	private String password;
 	@Enumerated(EnumType.STRING)
-	@Column(name="account")
+	@Column(name = "account_role")
+	@JsonView(JsonViews.Base.class)
 	private Role role;
 	@OneToOne(mappedBy = "compte")
+	@JsonView(JsonViews.CompteWithClient.class)
 	private Client client;
-	
-	
+
 	public Compte() {
-		super();
+
 	}
 
+	public Compte(String login, String password) {
+		this.login = login;
+		this.password = password;
+	}
 
-	public Compte(Integer id, String username, String password, Role role) {
-		super();
-		this.id = id;
-		this.username = username;
+	public Compte(String login, String password, Role role) {
+		this.login = login;
 		this.password = password;
 		this.role = role;
 	}
 
-
-	public Compte(String username, String password, Role role) {
-		super();
-		this.username = username;
+	public Compte(String login, String password, Role role, Client client) {
+		this.login = login;
 		this.password = password;
 		this.role = role;
-	}
-	
-	
-
-
-	public Compte(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
+		this.client = client;
 	}
 
-
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-	public String getUsername() {
-		return username;
+	public String getLogin() {
+		return login;
 	}
 
-
-	public void setUsername(String username) {
-		this.username = username;
+	public void setLogin(String login) {
+		this.login = login;
 	}
-
 
 	public String getPassword() {
 		return password;
 	}
 
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 
 	public Role getRole() {
 		return role;
 	}
 
-
 	public void setRole(Role role) {
 		this.role = role;
 	}
 
-
-	
-	
 	public Client getClient() {
 		return client;
 	}
-
 
 	public void setClient(Client client) {
 		this.client = client;
 	}
 
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -133,13 +120,16 @@ public class Compte implements UserDetails{
 		Compte other = (Compte) obj;
 		return Objects.equals(id, other.id);
 	}
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-
 		return Arrays.asList(new SimpleGrantedAuthority(role.toString()));
 	}
 
+	@Override
+	public String getUsername() {
+		return login;
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {
@@ -161,6 +151,4 @@ public class Compte implements UserDetails{
 		return true;
 	}
 
-	
-	
 }

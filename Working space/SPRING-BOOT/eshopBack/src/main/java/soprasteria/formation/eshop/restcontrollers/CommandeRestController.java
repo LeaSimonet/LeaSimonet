@@ -1,19 +1,24 @@
 package soprasteria.formation.eshop.restcontrollers;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import soprasteria.formation.eshop.entities.Client;
 import soprasteria.formation.eshop.entities.Commande;
+import soprasteria.formation.eshop.entities.Compte;
 import soprasteria.formation.eshop.entities.Produit;
+import soprasteria.formation.eshop.entities.jsonviews.JsonViews;
 import soprasteria.formation.eshop.model.ElementPanier;
 import soprasteria.formation.eshop.services.ClientService;
 import soprasteria.formation.eshop.services.CommandeService;
@@ -30,19 +35,13 @@ public class CommandeRestController {
 	@Autowired
 	private ProduitService produitSrv;
 
-	@PostMapping("/{idClient}")
-	public Commande create(@PathVariable("idClient") Long idClient, @RequestBody List<ElementPanier> elements) {
-		Client client = clientSrv.getById(idClient);
+	@PostMapping("")
+	@JsonView(JsonViews.Commande.class)
+	public Commande create(@AuthenticationPrincipal Compte compte, @RequestBody List<ElementPanier> elements) {
+		Client client =compte.getClient();
 
-		Map<Produit, Integer> panier = new HashMap<>();
-		; // parcourir la liste elements
-		elements.forEach(e -> {
-			panier.put(produitSrv.getById(e.getIdProduit()), e.getQuantite());
-
-		});
-		// pour chaque element produitSrv.getById(idProduit)
-		// put dans une Map<Produit,Integer>
+		Map<Produit, Integer> panier = elements.stream()
+				.collect(Collectors.toMap((e) -> produitSrv.getById(e.getIdProduit()), ElementPanier::getQuantite));
 		return commandeSrv.create(client, panier);
-
 	}
 }

@@ -30,50 +30,50 @@ public class ClientRestController {
 
 	@Autowired
 	private ClientService clientSrv;
-	
+
 	@GetMapping("")
 	@JsonView(JsonViews.Client.class)
 	public List<Client> getAll() {
 		return clientSrv.getAll();
 	}
-	
+
 	@GetMapping("/{id}")
 	@JsonView(JsonViews.Client.class)
 	public Client getById(@PathVariable("id") Long id) {
 		return clientSrv.getById(id);
 	}
-	
+
 	@GetMapping("/{id}/commandes")
 	@JsonView(JsonViews.ClientWithCommandes.class)
 	public Client getByIdWithProduits(@PathVariable("id") Long id) {
 		return clientSrv.getByIdWithCommandes(id);
 	}
-	
+
 	@GetMapping("/nom/{nom}")
 	@JsonView(JsonViews.Client.class)
-	public List<Client> getByNom(@PathVariable String nom){
+	public List<Client> getByNom(@PathVariable String nom) {
 		return clientSrv.getByNom(nom);
 	}
-	
-	@PostMapping("")
+
+	@PostMapping({ "", "/inscription" })
 	@JsonView(JsonViews.Client.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Client create(@Valid @RequestBody Client client,BindingResult br) {
-		if(br.hasErrors()) {
-			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
+	public Client create(@Valid @RequestBody Client client, BindingResult br) {
+		if (br.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		return clientSrv.create(client);
 	}
-	
+
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Client.class)
-	public Client update(@Valid @RequestBody Client client,BindingResult br,@PathVariable Long id) {
+	public Client update(@Valid @RequestBody Client client, BindingResult br, @PathVariable Long id) {
 		client.setId(id);
 		return clientSrv.update(client);
 	}
-	
+
 	@DeleteMapping("/{id}")
-	@ResponseStatus(code=HttpStatus.NO_CONTENT)
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		clientSrv.delete(id);
 	}

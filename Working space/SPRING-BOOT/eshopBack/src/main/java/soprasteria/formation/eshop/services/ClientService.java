@@ -20,7 +20,6 @@ public class ClientService {
 	private ClientRepository clientRepo;
 	@Autowired
 	private CommandeService commandesSrv;
-	
 	@Autowired
 	private CompteService compteSrv;
 
@@ -41,7 +40,7 @@ public class ClientService {
 
 	public Client create(Client client) {
 		checkClient(client);
-		Compte compte =compteSrv.createClient(client.getCompte().getUsername(), client.getCompte().getPassword());
+		Compte compte = compteSrv.createClient(client.getCompte().getLogin(), client.getCompte().getPassword());
 		client.setCompte(compte);
 		return clientRepo.save(client);
 	}
